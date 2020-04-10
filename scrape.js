@@ -6,10 +6,7 @@ const fs = require('fs');
 (async () => {
   const browser = await puppeteer.launch({ headless: false });
   const page = await browser.newPage();
-  let subLinks = [
-    // 'https://www.europeanmint.com/quarter-dollar-silver-proof-coin/',
-    // 'https://www.europeanmint.com/2019-1oz-germania-mint-columbia-coin/',
-  ];
+  let subLinks = [];
   const coins = [];
 
   await page.goto(`https://www.europeanmint.com/`);
@@ -93,6 +90,4 @@ const fs = require('fs');
   await browser.close();
   const xls = json2xls(coins);
   fs.writeFileSync('data.xlsx', xls, 'binary');
-
-  console.log(coins);
 })();
