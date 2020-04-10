@@ -74,7 +74,6 @@ const fs = require('fs');
         return obj;
       })
       .reduce((r, c) => Object.assign(r, c), {});
-    desc['Metal Content'];
 
     coins.push({ ...coin, ...desc });
     await page.goBack({ waitUntil: 'networkidle0' });
